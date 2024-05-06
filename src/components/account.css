@@ -1,0 +1,97 @@
+.account-container {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 5px solid hsl(260, 93%, 46%);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: hsl(0, 7%, 78%);
+  }
+  
+  .profile-section {
+    display: flex;
+    align-items: center;
+    
+    margin-bottom: 20px;
+  }
+  
+  .profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .profile-name {
+    margin-left: 20px;
+  }
+  
+  .profile-name label {
+    font-weight: bold;
+  }
+  
+  .alert-section {
+    margin-bottom: 20px;
+  }
+  
+  .alert-section button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .password-section {
+    margin-bottom: 20px;
+  }
+  
+  .password-section input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .type-section {
+    margin-bottom: 20px;
+  }
+  
+  .type-section select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .close-btn {
+    position: absolute;
+    top: 20%;
+    right: 25%;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .save-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .save-btn:hover {
+    background-color: #0056b3;
+  }

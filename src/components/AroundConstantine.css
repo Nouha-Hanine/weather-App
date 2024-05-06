@@ -1,0 +1,79 @@
+
+.grid-container {
+    align-items: center;
+    align-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    grid-template-rows: repeat(2, 150px);
+    gap: 20px;
+    justify-content: start;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+  
+  .grid-item {
+    background-color: rgba(225, 225, 225, 0.564);
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    text-align: center;
+    padding-bottom: 8px;
+  }
+  
+  .grid-item p {
+    font-size: 15px;
+  }
+  
+  /*TODO make sure responsiveness ne gache pas le contenu
+    it does now fix it!*/
+  
+  @media (max-width: 600px) {
+    .grid-container {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, 1fr);
+      margin-left: 10px;
+      margin-right: 10px;
+      width: 95%;
+    }
+  }
+  
+  .glass-card1,
+  .glass-card2,
+  .glass-card3,
+  .glass-card4 {
+    width: 130px;
+    max-width: 22rem;
+    height: 150px;
+    max-height: 24.5rem;
+    padding: 1.25rem;
+    background: rgba(225, 225, 225, 0.564);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 10px;
+    border: 1px solid rgba(225, 225, 225, 0.18);
+    position: relative;
+  }
+  
+  .glass-card1 {
+    margin-top: 50px;
+    margin-left: 80px;
+  }
+  .glass-card2 {
+    position: relative;
+    margin-top: 50px;
+    margin-left: 280px;
+    bottom: 45%;
+  }
+  .glass-card3 {
+    margin-left: 80px;
+    bottom: 40%;
+  }
+  .glass-card4 {
+    margin-left: 280px;
+    bottom: 76%;
+  }

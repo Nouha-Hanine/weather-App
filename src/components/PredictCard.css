@@ -1,0 +1,78 @@
+.glass_card{
+    z-index: 1;
+    width: 22rem;
+    min-width: 22rem;
+    height: 24.5rem;
+    padding: 1.25rem;
+    background: rgba(225, 225, 225, 0.564);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 10px;
+    border: 1px solid rgba(225, 225, 225, 0.18);
+    margin-top: 250px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 150px;
+  position: relative;
+}
+
+.predict-btn {
+  align-items: center;
+  background: #ffffff;
+  border: 0 solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  color: #1a202c;
+  display: inline-flex;
+  font-family: Inter, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  height: 56px;
+  justify-content: center;
+  line-height: 24px;
+  overflow-wrap: break-word;
+  padding: 24px;
+  text-decoration: none;
+  width: auto;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.predict-btn:hover {
+  background-color: rgba(214, 210, 210, 0.616);
+}
+.box{
+  padding: 0px;
+  margin: 0px;
+}
+
+.predict-container{
+  height: 379px;
+  width: 350px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  overflow-x: scroll;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+@media screen and (max-width: 600px) {
+  .glass_card{
+    float:left;
+    position: absolute;
+    bottom: 0;
+    margin-left: 5px;
+    margin-right: 5px;
+    width:90%;
+    margin-top: 190px;
+    background-color: #1a202c;
+  }
+}
