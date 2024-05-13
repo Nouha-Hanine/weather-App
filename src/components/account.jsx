@@ -33,17 +33,17 @@ function Account({ onClose }) {
   };
 
   const handleUserNameClick = () => {
-    setIsEditingName(true); // Activer le mode d'édition du nom lorsque l'utilisateur clique dessus
+    setIsEditingName(true); 
   };
 
   
 
   const handleUserNameBlur = () => {
-    setIsEditingName(false); // Désactiver le mode d'édition du nom lorsque le champ perd le focus
+    setIsEditingName(false); 
   };
 
   const handleSave = () => {
-    // Ajoutez ici la logique pour sauvegarder les modifications du nom
+   
     console.log('User name updated:', userName);
   };
 
