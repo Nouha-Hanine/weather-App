@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect,useState } from 'react';
 import './App.css';
 import Login from './components/Login';
 import Signup from './components/Signup';
@@ -8,9 +8,15 @@ import Header from './components/Header';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('login'); 
-
+  useEffect(() => {
+    const storedPage = localStorage.getItem('currentPage');
+    if (storedPage) {
+      setCurrentPage(storedPage);
+    }
+  }, []);
   const navigateTo = (page) => {
-    setCurrentPage(page); 
+    setCurrentPage(page);
+    localStorage.setItem('currentPage', page);
   };
 
  

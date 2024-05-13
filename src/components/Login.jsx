@@ -1,21 +1,36 @@
+
+
 import React, { useState } from 'react';
 import './Login.css';
 
 function Login({ navigateTo }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    
-    console.log('Email:', email);
-    console.log('Password:', password);
-   
-    setEmail('');
-    setPassword('');
 
-   
-    navigateTo('mainpage');
+    try {
+      const response = await fetch('http://localhost:5000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        // Utilisateur authentifié avec succès
+        navigateTo('mainpage');
+      } else {
+        // Erreur d'authentification
+        setError('Invalid email or password');
+      }
+    } catch (error) {
+      console.error('Error logging in:', error);
+      setError('Something went wrong. Please try again.');
+    }
   };
 
   return (
@@ -24,7 +39,7 @@ function Login({ navigateTo }) {
       <form onSubmit={handleLogin}>
         <div className="form-group">
           <label htmlFor="email">Email :</label>
-          <input
+          <input 
             type="email"
             id="email"
             value={email}
@@ -42,7 +57,8 @@ function Login({ navigateTo }) {
             required
           />
         </div>
-        <button type="submit">Login</button>
+        <button className="button" type="submit">Login</button>
+        {error && <p className="error-message">{error}</p>}
       </form>
       
       <p>
@@ -56,8 +72,3 @@ function Login({ navigateTo }) {
 }
 
 export default Login;
-
-
-
-
-

@@ -1,97 +1,143 @@
 .account-container {
-    max-width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    border: 5px solid hsl(260, 93%, 46%);
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: hsl(0, 7%, 78%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 60%;
+  height: 70%;
+  padding: 10%; 
+  border: 3px solid hsl(198, 64%, 53%);
+  border-radius: 5px;
+  position: fixed; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+ 
+  background-image: url('src/assets/blanche.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  
+  &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('src/assets/bluetooth_avec_gris.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      z-index: 1; 
   }
+}
   
   .profile-section {
     display: flex;
-    align-items: center;
     
-    margin-bottom: 20px;
+    align-items: center;
+   
+    align-self: center;
+    z-index: 2; 
   }
   
-  .profile-image {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    overflow: hidden;
-  }
-  
-  .profile-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
   
   .profile-name {
-    margin-left: 20px;
+    padding: 5%;
+    z-index: 2;
   }
-  
-  .profile-name label {
+  label{
+    font-size: small;
     font-weight: bold;
+  }
+  .profile-name label {
+    
+    z-index: 2;
   }
   
   .alert-section {
     margin-bottom: 20px;
+    z-index: 2;
+
   }
   
-  .alert-section button {
-    padding: 8px 16px;
-    background-color: #007bff;
-    color: #fff;
+ 
+ .enable-button{
+ padding: 2px;
+  background-color: green;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 2;
+ }
+  
+  .disable-button {
+    padding: 2px;
+    background-color: #ac0909;
+   color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    z-index: 2;
   }
-  
   .password-section {
     margin-bottom: 20px;
+    z-index: 2;
   }
   
   .password-section input {
     width: 100%;
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #1d1a1a;
     border-radius: 4px;
+    z-index: 2;
   }
   
   .type-section {
     margin-bottom: 20px;
+    z-index: 2;
+    width: 100%;
+    
   }
   
-  .type-section select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
+  
   .close-btn {
     position: absolute;
-    top: 20%;
-    right: 25%;
+    top: 5%;
+    right: 5%;
+    transform: translate(-5%, -5%);
     cursor: pointer;
     background-color: transparent;
     border: none;
     font-size: 18px;
-    color: #333;
+    color: hsl(0, 79%, 45%);
+    z-index: 2;
   }
-  
-  .save-btn {
-    width: 100%;
+  select#type{
+    background-color: hsl(49, 63%, 89%);
+    border-radius:2px;
+    border-color: hsl(42, 80%, 69%);
+    border-width: 2px;
+    
+  }
+  .button {
+    width: 50%;
     padding: 10px;
-    background-color: #007bff;
+    font-size: 16px; 
+    background-color: #3c5ce8;
     color: #fff;
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 20px;
     cursor: pointer;
+    z-index: 2;
   }
   
-  .save-btn:hover {
-    background-color: #0056b3;
+  .button:hover {
+    background-color: #e1bc15;
+  }
+  span{
+    font-size: small;
   }

@@ -4,8 +4,12 @@ import './account.css';
 function Account({ onClose }) {
   const [userName, setUserName] = useState('username');
   const [alertEnabled, setAlertEnabled] = useState(false);
-  const [password, setPassword] = useState('');
+  const [oldPassword, setOldPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  
   const [selectedType, setSelectedType] = useState('Type A');
+  
+  const [isEditingName, setIsEditingName] = useState(false);
 
   const handleUserNameChange = (e) => {
     setUserName(e.target.value);
@@ -15,13 +19,34 @@ function Account({ onClose }) {
     setAlertEnabled(!alertEnabled);
   };
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
+  const handleOldPasswordChange = (e) => {
+    setOldPassword(e.target.value);
   };
 
+  const handleNewPasswordChange = (e) => {
+    setNewPassword(e.target.value);
+  };
+
+ 
   const handleTypeChange = (e) => {
     setSelectedType(e.target.value);
   };
+
+  const handleUserNameClick = () => {
+    setIsEditingName(true); // Activer le mode d'édition du nom lorsque l'utilisateur clique dessus
+  };
+
+  
+
+  const handleUserNameBlur = () => {
+    setIsEditingName(false); // Désactiver le mode d'édition du nom lorsque le champ perd le focus
+  };
+
+  const handleSave = () => {
+    // Ajoutez ici la logique pour sauvegarder les modifications du nom
+    console.log('User name updated:', userName);
+  };
+
 
   return (
     <div className="account-container">
@@ -29,53 +54,71 @@ function Account({ onClose }) {
         X
       </button>
       <div className="profile-section">
-        {/* Photo de profil */}
-        <div className="profile-image">
-          <img src="/path/to/profile-image.jpg" alt="Profile" />
-        </div>
+       
         {/* Nom modifiable */}
-        <div className="profile-name">
+        <div className="profile-name" onClick={handleUserNameClick}>
           <label htmlFor="userName">Name:</label>
-          <input
-            type="text"
-            id="userName"
-            value={userName}
-            onChange={handleUserNameChange}
-          />
+          {isEditingName ? ( 
+            <input
+              type="text"
+              id="userName"
+              value={userName}
+              onChange={handleUserNameChange}
+              onBlur={handleUserNameBlur}
+              autoFocus 
+            />
+          ) : (
+            
+            <span>{userName}</span>
+          )}
         </div>
       </div>
       {/* Section Alertes */}
       <div className="alert-section">
-        <label>Alerte:</label>
-        <button onClick={handleAlertToggle}>
-          {alertEnabled ? 'Disable' : 'Enable'}
+        
+        <label>Alerts:</label>
+        <button className={alertEnabled ? "enable-button" : "disable-button"} onClick={handleAlertToggle}>
+          {alertEnabled ? 'Enable' : 'Disable'}
         </button>
       </div>
       {/* Section Changement de mot de passe */}
       <div className="password-section">
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="oldPassword">Old Password:</label>
         <input
+        placeholder='Enter your password'
           type="password"
-          id="password"
-          value={password}
-          onChange={handlePasswordChange}
+          id="oldPassword"
+          value={oldPassword}
+          onChange={handleOldPasswordChange}
         />
+        <label htmlFor="newPassword">New Password:</label>
+        <input
+        placeholder='Enter new password'
+          type="password"
+          id="newPassword"
+          value={newPassword}
+          onChange={handleNewPasswordChange}
+        />
+       
       </div>
       {/* Section Choix de type */}
       <div className="type-section">
         <label htmlFor="type">Type:</label>
         <select id="type" value={selectedType} onChange={handleTypeChange}>
-        <option value="Type A">student</option>
+          <option value="Type A">student</option>
           <option value="Type B">airline-worker</option>
           <option value="Type C">agriculture-worker</option>
-          <option value="Type D">driving</option>
+          <option value="Type D">driver</option>
         </select>
       </div>
       {/* Bouton de sauvegarde */}
-      <button className="save-btn">Save</button>
+      <button className="button" onClick={handleSave}>
+        Save
+      </button>
     </div>
   );
 }
 
 export default Account;
+
 
