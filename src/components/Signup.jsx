@@ -5,12 +5,13 @@ function Signup({ navigateTo }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [type, setType] = useState('');
+  const [type, setType] = useState('student'); 
+  const [alerts, setAlerts] = useState('enable'); 
 
   const handleSignup = async (e) => {
     e.preventDefault();
 
-    const userData = { name, email, password, type };
+    const userData = { name, email, password, type, alerts };
 
     try {
       const response = await fetch('http://localhost:5000/register', {
@@ -21,21 +22,23 @@ function Signup({ navigateTo }) {
         body: JSON.stringify(userData),
       });
 
-      const result = await response.json();
-
-      if (response.ok) {
-        alert('User registered successfully!');
-        // Réinitialiser les champs après l'enregistrement réussi
-        setName('');
-        setEmail('');
-        setPassword('');
-        setType('');
-      } else {
-        alert('Failed to register user.');
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to register user.');
       }
+
+      const result = await response.json();
+      alert('User registered successfully!');
+
+      
+      setName('');
+      setEmail('');
+      setPassword('');
+      setType('student');
+      setAlerts('enable');
     } catch (error) {
       console.error('Error registering user:', error);
-      alert('Something went wrong. Please try again.');
+      alert(error.message);
     }
   };
 
@@ -43,12 +46,16 @@ function Signup({ navigateTo }) {
     setType(e.target.value);
   };
 
+  const handleAlertsChange = (e) => {
+    setAlerts(e.target.value);
+  };
+
   return (
     <div className="signup-container">
       <h2>Signup</h2>
       <form onSubmit={handleSignup}>
         <div className="form-group">
-          <label htmlFor="name">Name :</label>
+          <label htmlFor="name">Name:</label>
           <input
             type="text"
             id="name"
@@ -58,7 +65,7 @@ function Signup({ navigateTo }) {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="email">Email :</label>
+          <label htmlFor="email">Email:</label>
           <input
             type="email"
             id="email"
@@ -68,7 +75,7 @@ function Signup({ navigateTo }) {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="password">Password :</label>
+          <label htmlFor="password">Password:</label>
           <input
             type="password"
             id="password"
@@ -84,6 +91,13 @@ function Signup({ navigateTo }) {
             <option value="airline-worker">Airline Worker</option>
             <option value="agriculture-worker">Agriculture Worker</option>
             <option value="driver">Driver</option>
+          </select>
+        </div>
+        <div className="form-group">
+          <label htmlFor="alerts">Alerts:</label>
+          <select id="alerts" value={alerts} onChange={handleAlertsChange} required>
+            <option value="enable">Enable</option>
+            <option value="disable">Disable</option>
           </select>
         </div>
         <button className="button" type="submit">
