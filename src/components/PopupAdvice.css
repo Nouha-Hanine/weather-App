@@ -18,13 +18,13 @@
   max-width: 640px;
   background-color: #fff;
 }
-.popup-inner .close-btn {
+.popup-inner .close-popup-btn {
   position: absolute;
   top: 16px;
   right: 16px;
 }
 
-.close-btn {
+.close-popup-btn {
   background-color: #ffffff;
   border: 1px solid #222222;
   border-radius: 8px;
@@ -51,23 +51,22 @@
   width: auto;
 }
 
-.close-btn:focus-visible {
+.close-popup-btn:focus-visible {
   box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
   transition: box-shadow 0.2s;
 }
-
-.close-btn:active {
+.close-popup-btn:active {
   background-color: #f7f7f7;
   border-color: #000000;
   transform: scale(0.96);
 }
 
-.close-btn:disabled {
+.close-popup-btn:disabled {
   border-color: #dddddd;
   color: #dddddd;
   cursor: not-allowed;
   opacity: 1;
 }
-.close-btn:hover {
+.close-popup-btn:hover {
   background-color: #efe5e5;
 }
