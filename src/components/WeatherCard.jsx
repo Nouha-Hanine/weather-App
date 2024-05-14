@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./WeatherCard.css";
-import WeatherIcon from "./WeatherIcon.jsx";
 import UnitChanger from "./UnitChanger.jsx";
+import CurrentWeatherAPI from "./CurrentWeatherAPI.jsx"
 // TODO have to recieve props from json file?
 function WeatherCard({ temperature, humidity, windSpeed, pressure }) {
   const [convertedTemperature, setConvertedTemperature] = useState(temperature);
@@ -23,7 +23,7 @@ function WeatherCard({ temperature, humidity, windSpeed, pressure }) {
 
   return (
     <>
-      <WeatherIcon />
+    <h1>The current weather in Constantine:</h1>
       <div className="glassCard">
         <p className="temp-name">Temperature:</p>
         <div className="temp-container">
@@ -54,7 +54,7 @@ function WeatherCard({ temperature, humidity, windSpeed, pressure }) {
         <p className="wind-name">Wind Speed:</p>
         <div className="windspeed-container">
           <p className="windspeed">
-            {convertedWindSpeed} {UnitChanger.selected}
+            <CurrentWeatherAPI typeData="windSpeed" /> {UnitChanger.selected}
           </p>
           <UnitChanger
             options={["m/s", "km/h"]}
@@ -68,7 +68,7 @@ function WeatherCard({ temperature, humidity, windSpeed, pressure }) {
         />
         <p className="pressure-name">Pressure:</p>
         <div className="pressure-container">
-          <p className="pressure">{convertedPressure} </p>
+          <p className="pressure"><CurrentWeatherAPI typeData="pressure"/> </p>
           <UnitChanger
             options={["Pa", "ATM"]}
             value={pressure}
