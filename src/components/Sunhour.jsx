@@ -41,7 +41,7 @@ function Sunhour({city}) {
     
     </>}
     {!sunriseTime && !sunsetTime &&
-    <h2 style={{position: "absolute", bottom: 110, left: 290}}>Preparing to fetch data...</h2>
+    <h2 style={{fontSize: "1.3em", position: "absolute", bottom: 50, left: 50}}>Preparing to fetch data...</h2>
     }
   
    </>
