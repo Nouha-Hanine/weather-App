@@ -1,53 +1,47 @@
-import React from 'react'
-import './GeneralAdvice.css'
-import sunrise from '../assets/sunrise.png';
-import sunset from '../assets/sunset.png';
-import Sunhour from './Sunhour';
+import React from "react";
+import "./GeneralAdvice.css";
+import goals from '../assets/goal.png';
+import exercise from '../assets/exercise.png';
+import happy from '../assets/happy-face.png';
+import learn from '../assets/machine-learning.png';
+import breaks from '../assets/coffee-break.png';
+import balance from '../assets/balance.png';
 function GeneralAdvice() {
-  //todo add in here some styling for grid items
-  //TODO gerer l'animation du point of coucher/lever of sun inspi: weather by oppo
   return (
     <>
-    <div className='gr-container'>
-      <div className="gr-it">
-        <p className='advice'>
-            High risk of overnight frost
-        </p>
+      <p className="title">General advice:</p>
+      <div className="gr-container">
+        <div className="gr-it">
+          <img src={exercise} style={{height: "40px", width: "40px", display:"block", marginLeft: 'auto', marginRight: 'auto', marginTop: "2px"}}/>
+          <p className="advice">
+            Exercise and eat healthily for overall wellness.
+          </p>
+        </div>
+        <div className="gr-it">
+        <img src={happy} style={{height: "40px", width: "40px", display:"block", marginLeft: 'auto', marginRight: 'auto'}}/>
+          <p className="advice">
+            Stay positive and grateful for resilience and happiness.
+          </p>
+        </div>
+        <div className="gr-it">
+        <img src={learn} style={{height: "40px", width: "40px", display:"block", marginLeft: 'auto', marginRight: 'auto'}}/>
+          <p className="advice">Keep learning to adapt and stay competitive.</p>
+        </div>
+        <div className="gr-it">
+        <img src={breaks} style={{height: "40px", width: "40px", display:"block", marginLeft: 'auto', marginRight: 'auto'}}/>
+          <p className="advice">Take breaks for physical and mental rest.</p>
+        </div>
+        <div className="gr-it">
+        <img src={goals} style={{height: "40px", width: "40px", display:"block", marginLeft: 'auto', marginRight: 'auto'}}/>
+          <p className="advice">Review goals regularly to stay focused.</p>
+        </div>
+        <div className="gr-it">
+        <img src={balance} style={{height: "40px", width: "40px", display:"block", marginLeft: 'auto', marginRight: 'auto'}}/>
+          <p className="advice">Balance work and life for well-being.</p>
+        </div>
       </div>
-      <div className="gr-it">
-        <p className='advice'>
-            High level of air pollution
-        </p>
-      </div>
-      <div className="gr-it">
-      <p className='advice'>
-        Use mosquitos repellent to avoid bites  
-      </p>
-      </div>
-      <div className="gr-it">
-      <p className='advice'>
-      Be cautious of potential flooding risks
-      </p>
-      </div>
-      <div className="gr-it">        
-      <p className='advice'>
-        Suitable for car washing.
-      </p>
-      </div>
-      <div className="gr-it">
-      <p className='advice'>
-      Use more moisturizers
-      </p>
-      </div>
-    </div>
-    <div className="sunhour-container">
-      <img src={sunrise} alt="sunrise" className="sunrise" />
-      <Sunhour city="Constantine"/>
-      <div className="line"></div>
-      <img src={sunset} alt="sunset" className="sunset" />
-    </div>
-</>
-  )
+    </>
+  );
 }
 
-export default GeneralAdvice
+export default GeneralAdvice;
