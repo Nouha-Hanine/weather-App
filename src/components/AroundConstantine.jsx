@@ -7,11 +7,13 @@ import "./AroundConstantine.css";
 
 import Weather from "./Weather";
 //TODO find a way to display with this only one place:
-export default function AroundConstantine({ temperature }) {
+export default function AroundConstantine() {
   let icon = "";
  
   return (
     <>
+      <p className="title-around">Around Constantine weather:</p>
+
       <div className="grid-container">
         <div className="grid-item">
           
