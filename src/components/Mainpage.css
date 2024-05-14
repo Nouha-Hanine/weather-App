@@ -4,15 +4,43 @@ body { position: absolute; width: 100%; }
     width: 50%; /* w-full */
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem; /* Assuming gap-8 corresponds to a gap of 2rem */
+    gap: 1rem; 
     padding: 1rem 10%; /* Assuming py-4 corresponds to a vertical padding of 4rem and px-[10%] corresponds to a horizontal padding of 10% */
     justify-content: flex-start; /* jusitify-center (typo corrected) */
     align-items: center;
   }
-
-  .second-part-page{
+  .blank-bloc{
+    height: 80vh;
     width: 100%;
-    height: 95vh;
+  }
+  .second-part-page {
+    margin-top: 0;
+    width: 100%;
+    height: auto;
     top: 100%;
     position: relative;
+    display: flex;
+    justify-content: space-between;
   }
+  @media screen and (max-width: 600px) {
+    .second-part-page{
+      display: grid;
+      grid-template-columns: minmax(100px, 2fr);
+      gap: 480px;
+      /*TODO adjsut blank space between both components*/
+    }  
+  
+  }
+  @media screen and (max-width: 500px) {
+    .weather-card-container{
+    gap: 0rem;
+    display: block;
+    margin-top: 300px;
+    padding: 1rem 4%;
+    }
+    .blank-bloc{
+      height: 1vh;
+      width: 100%;
+    }
+  }
+  
