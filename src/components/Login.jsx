@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import './Login.css';
 
-function Login({ navigateTo }) {
+function Login({ onLoginSuccess, navigateTo }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -21,10 +21,12 @@ function Login({ navigateTo }) {
       });
 
       if (response.ok) {
-        // Utilisateur authentifié avec succès
-        navigateTo('mainpage');
+        
+        const userData = await response.json();
+        onLoginSuccess(userData); 
+        
       } else {
-        // Erreur d'authentification
+        
         setError('Invalid email or password');
       }
     } catch (error) {
