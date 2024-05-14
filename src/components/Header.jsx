@@ -1,7 +1,8 @@
 import React from 'react';
-import logo from '../assets/logo-weather-no-background.png';
+import logo from "../assets/bluetooth_avec_noir-removebg.png"; 
 import { useDate } from './UseDate.jsx';
 import './Header.css';
+import user from "../assets/user (1).png";
 
 function Header({ navigateTo }) {
   const { date, time } = useDate();
@@ -28,8 +29,8 @@ function Header({ navigateTo }) {
           <div className='nav-date'>{date}</div>
         </div>
         <div className="nav-link">
-          <a className='nav-link1' href='#'>
-            Predict
+          <a className='nav-link1' href=''>
+            Home
           </a>
           <a className='nav-link2' href='#'>
             About
@@ -41,7 +42,7 @@ function Header({ navigateTo }) {
         <div className='nav-menu'>
            
           <a title="Account" className='nav-account' onClick={handleAccountClick}>
-            Account
+          <img src={user} alt="avatar_account" />
           </a>
           <button className="logout-btn" onClick={handleLogout}>
             Logout
