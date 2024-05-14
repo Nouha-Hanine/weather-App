@@ -7,8 +7,8 @@ function PredictCard() {
   const [predict, setPredict] = useState(false);
 
   //add animation TODO
-  //TODO gerer le link to predict
   return (
+    <><p className="title-predict">Predict the weather:</p>
     <div id="predict">
       <div className="glass_card">
       {!predict && (
@@ -19,10 +19,12 @@ function PredictCard() {
             >Click to predict!</button>
              </div>
           )}
-          {predict && <WeatherPrediction />}
-          
+          <div className="max-w-lg">
+          {predict && <WeatherPrediction/> }
+          </div>
       </div>
     </div>
+    </>
   );
 }
 
