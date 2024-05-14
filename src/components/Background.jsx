@@ -1,6 +1,7 @@
 import "./Background.css";
 import staticCloud from "../assets/pngimg.com - cloud_PNG6.png";
 import staticSun from "../assets/pngimg.com - sun_PNG13445.png";
+import staticRainCloud from '../assets/staticRainCloud.png';
 import { useState } from "react";
 const Background = ({ backgroundState }) => {
   const [weatherState, setWeatherState]= useState("");
@@ -37,6 +38,19 @@ const Background = ({ backgroundState }) => {
       </div>
     </>
   )}
+  if(backgroundState == "rainy"){
+    return(
+      <>
+      <div className="icon2-container">
+          <img src={staticRainCloud}/><p className="description3">{backgroundState}</p>
+      <p className="place3">Constantine</p>
+      </div>
+      <section className="rain1"></section>
+      </>
+    )
+  };
 };
+
+
 
 export default Background;
