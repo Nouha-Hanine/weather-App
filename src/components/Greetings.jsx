@@ -1,8 +1,29 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { useEffect } from "react";
 import { useDate } from "./UseDate";
-function Greetings() {
+function Greetings({ user }) {
+  const [userName, setUserName] = useState('');
+  const [alertEnabled, setAlertEnabled] = useState(false);
+  const [oldPassword, setOldPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [selectedType, setSelectedType] = useState('');
+  const [isEditingName, setIsEditingName] = useState(false);
+  const [userId, setUserId] = useState('');
+  const [userEmail, setUserEmail] = useState(''); 
+  const [userPassword, setUserPassword] = useState(''); 
+  
+  useEffect(() => {
+    if (user) {
+      setUserId(user._id);
+      setUserName(user.name);
+      setAlertEnabled(user.alerts === 'enable');
+      setSelectedType(user.type);
+      setUserEmail(user.email); 
+      setUserPassword(user.password); 
+    }
+  }, [user]);
   let greeting;
-  let username = "Mey"; //recup from database TODO
   let { time } = useDate();
   if (time < 12) {
     greeting = "Good morning";
@@ -33,7 +54,7 @@ function Greetings() {
           }
         `}
         </style>
-        {greeting} {username}!
+        {greeting} {userName}!
       </h1>
     </div>
   );
