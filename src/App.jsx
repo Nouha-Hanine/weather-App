@@ -12,13 +12,18 @@ function App() {
 
   const handleLoginSuccess = (userData) => {
     setLoggedInUser(userData);
+    localStorage.setItem('loggedInUser', JSON.stringify(userData));
     navigateTo('mainpage');
   };
 
   useEffect(() => {
     const storedPage = localStorage.getItem('currentPage');
+    const storedUser = localStorage.getItem('loggedInUser');
     if (storedPage) {
       setCurrentPage(storedPage);
+    }
+    if (storedUser) {
+      setLoggedInUser(JSON.parse(storedUser));
     }
   }, []);
 
@@ -40,6 +45,7 @@ function App() {
 
   const handleLogout = () => {
     setLoggedInUser(null);
+    localStorage.removeItem('loggedInUser');
     setCurrentPage('login');
   };
 
